@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gîte La Belle Vue - Avis des clients</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="https://cdn.midjourney.com/ffea7a88-b104-41f9-8fef-c7847a3e8a29/0_3.png" alt="Gîte La Belle Vue">
+        <h1>Gîte La Belle Vue</h1>
+        <ul>
+            <li><a href="#description">Description</a></li>
+            <li><a href="#reviews">Avis</a></li>
+            <li><a href="reservation.html">Réservation</a></li>
+        </ul>
+    </header>
+    <div class="container main-content">
+        <section id="description">
+            <h2>Description du Gîte</h2>
+            <p>Bienvenue au Gîte La Belle Vue, votre destination idéale pour des vacances relaxantes en pleine nature. Situé au cœur de la campagne, notre gîte offre une vue imprenable sur les montagnes environnantes et un cadre paisible pour se détendre. Le gîte dispose de trois chambres confortables, d'une cuisine entièrement équipée, et d'un grand jardin avec une terrasse.</p>
+            <p>Que vous soyez amateur de randonnée, de vélo, ou simplement de détente, La Belle Vue saura vous séduire par son charme et son confort. Réservez dès maintenant et vivez une expérience inoubliable.</p>
+        </section>
+        <section id="reviews" class="reviews-list">
+            <h2>Avis des clients</h2>
+            <ul id="reviewsList">
+                <li><strong>Marie:</strong> <span>Séjour fantastique! La vue est à couper le souffle et le gîte est très confortable. Nous reviendrons sûrement!</span></li>
+                <li><strong>Jean:</strong> <span>Endroit parfait pour se détendre. La maison est bien équipée et le jardin est magnifique.</span></li>
+                <li><strong>Lucie:</strong> <span>Nous avons passé un excellent moment en famille. Le gîte est propre et très bien situé.</span></li>
+                <li><strong>Thomas:</strong> <span>Super expérience! Les randonnées autour du gîte sont incroyables et le logement est très agréable.</span></li>
+            </ul>
+        </section>
+        <section id="submit-review" class="review-form">
+            <h2>Soumettre un avis</h2>
+            <form id="reviewForm">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="review">Avis:</label>
+                <textarea id="review" name="review" required></textarea>
+                <button type="submit">Soumettre</button>
+            </form>
+        </section>
+    </div>
+    <script>
+        
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const review = document.getElementById('review').value;
+
+            const reviewElement = document.createElement('li');
+            reviewElement.innerHTML = '<strong>' + name + ':</strong> <span> ' + review + '</span>';
+            document.getElementById('reviewsList').appendChild(reviewElement);
+
+            document.getElementById('name').value = '';
+            document.getElementById('review').value = '';
+
+            setInnerHTML(reviewElement,reviewElement.innerHTML);
+        });
+
+        function setInnerHTML(elm, html) {
+            elm.innerHTML = html;
+            
+            Array.from(elm.querySelectorAll("script"))
+                .forEach( oldScriptEl => {
+                const newScriptEl = document.createElement("script");
+                
+                Array.from(oldScriptEl.attributes).forEach( attr => {
+                    newScriptEl.setAttribute(attr.name, attr.value) 
+                });
+                
+                const scriptText = document.createTextNode(oldScriptEl.innerHTML);
+                newScriptEl.appendChild(scriptText);
+                
+                oldScriptEl.parentNode.replaceChild(newScriptEl, oldScriptEl);
+        });
+}
+    </script>
+</body>
+</html>
