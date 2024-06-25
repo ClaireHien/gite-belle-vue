@@ -12,13 +12,13 @@ Manipule donc les commentaires afin que le gîte perde toute sa crédibilité ! 
 Qu'ils gagnent des réservations ? Et puis quoi encore !? 
 Si des gens veulent réserver chez eux, ils finiront sur le meilleur mon-joli-corgi.fr ou.. tout autre site aguicheur. 
 
+### Indices ?
 <details>
-  <summary>Spoiler warning</summary>
-  
-  Spoiler text. Note that it's important to have a space after the summary tag. You should be able to write any markdown you want inside the `<details>` tag... just make sure you close `<details>` afterward.
+  <summary>Petit indice</summary>
+  Peut être que le formulaire n'est pas si sécurisé que ça.. ? 
   
   ```javascript
-  console.log("I'm a code block!");
+  document.body.style.backgroundColor="red";
   ```
   
 </details>
